@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 @Service
 @RequiredArgsConstructor
@@ -23,17 +26,17 @@ public class HeadHunterConnector {
 
     void getData(){
         String url = UriComponentsBuilder.fromHttpUrl("https://api.hh.ru/vacancies")
-                .queryParam("text", "новые вакансии")
-                .queryParam("per_page", 5)
-                .queryParam("data", )
+                .queryParam("text", "Java spring")
+              //  .queryParam("per_page", 5)
+                .queryParam("date_from", LocalDate.now().toString())
                 .toUriString();
 
         try {
-            String response = restTemplate.getForObject(url, String.class);
+            JobListDTO response = restTemplate.getForObject(url, JobListDTO.class);
             if (response != null) {
                 log.info("New vacancies: {}", response);
             } else {
-                log.warn("No response from hh.ru API");
+                log.info("No response from hh.ru API");
             }
         } catch (Exception e) {
             log.error("Error fetching new vacancies", e);
