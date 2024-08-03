@@ -1,5 +1,6 @@
 package com.example.chat_bot_job;
 
+import com.example.chat_bot_job.dto.JobListDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -7,9 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j

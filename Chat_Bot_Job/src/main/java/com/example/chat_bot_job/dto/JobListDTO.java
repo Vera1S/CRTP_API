@@ -1,17 +1,17 @@
-package com.example.chat_bot_job;
+package com.example.chat_bot_job.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
+import java.util.Collection;
+
 @Data
 @JsonDeserialize
 @JsonSerialize
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JobVacancyDTO {
+public class JobListDTO {
 
-    private String id;
-    private String name;
-    private JobSalaryDTO salary;
+    private Collection<JobVacancyDTO> items;
 }

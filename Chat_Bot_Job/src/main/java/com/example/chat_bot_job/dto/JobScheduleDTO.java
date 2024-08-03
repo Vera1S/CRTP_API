@@ -1,4 +1,4 @@
-package com.example.chat_bot_job;
+package com.example.chat_bot_job.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -9,9 +9,7 @@ import lombok.Data;
 @JsonDeserialize
 @JsonSerialize
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JobSalaryDTO {
+public class JobScheduleDTO {
 
-    private Integer from;
-    private Integer to;
-    private String currency;
+    private String name;
 }
