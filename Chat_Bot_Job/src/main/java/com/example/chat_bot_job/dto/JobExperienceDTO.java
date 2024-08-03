@@ -9,8 +9,7 @@ import lombok.Data;
 @JsonDeserialize
 @JsonSerialize
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JobScheduleDTO {
+public class JobExperienceDTO {
 
-    //private Integer id;
-    private String name;
+    private String experience;
 }

@@ -17,4 +17,5 @@ public class JobVacancyDTO {
     private JobEmployerDTO employer;
     private JobSnippetDTO snippet;
     private JobScheduleDTO schedule;
+    private JobExperienceDTO experience;
 }
