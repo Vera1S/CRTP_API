@@ -11,6 +11,6 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JobScheduleDTO {
 
-    //private Integer id;
+    private String id;
     private String name;
 }

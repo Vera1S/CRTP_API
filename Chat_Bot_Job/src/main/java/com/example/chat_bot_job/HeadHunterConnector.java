@@ -8,6 +8,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Service
 @RequiredArgsConstructor
@@ -23,23 +25,29 @@ public class HeadHunterConnector {
 Из строки получить список объектов (вакансий) для дальнейшей работы
    */
 
-    void getData(){
-        String url = UriComponentsBuilder.fromHttpUrl("https://api.hh.ru/vacancies")
-                .queryParam("text", "Java spring")
-              //  .queryParam("per_page", 5)
-                .queryParam("date_from", LocalDate.now().toString())
-                .toUriString();
+    Collection<JobListDTO> getData(){
+        Collection<JobListDTO> pagesVacancy = new ArrayList<>();
+        int countPage = 1;
+        for (int i = 0; i < countPage; i++) {
+            String url = UriComponentsBuilder.fromHttpUrl("https://api.hh.ru/vacancies")
+                    .queryParam("text", "Java spring")
+                    .queryParam("page", i)
+                    .queryParam("date_from", LocalDate.now().toString())
+                    .toUriString();
 
-        try {
-            JobListDTO response = restTemplate.getForObject(url, JobListDTO.class);
-            if (response != null) {
-                log.info("New vacancies: {}", response);
-            } else {
-                log.info("No response from hh.ru API");
+            try {
+                JobListDTO response = restTemplate.getForObject(url, JobListDTO.class);
+                if (response != null) {
+                    log.info("New vacancies: {}", response);
+                    countPage = response.getPages();
+                    pagesVacancy.add(response);
+                } else {
+                    log.info("No response from hh.ru API");
+                }
+            } catch (Exception e) {
+                log.error("Error fetching new vacancies", e);
             }
-        } catch (Exception e) {
-            log.error("Error fetching new vacancies", e);
-        }
-
+                    }
+        return pagesVacancy;
     }
 }

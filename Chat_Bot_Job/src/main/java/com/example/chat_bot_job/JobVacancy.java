@@ -8,26 +8,25 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "job_vacancy")
+@Table(name = "job_vacancy")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class JobVacancy {
 
     @Id
-    @GeneratedValue
     private Long id;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String companyName;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String vacancyName;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String offer;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Column
@@ -36,6 +35,5 @@ public class JobVacancy {
     @Enumerated(EnumType.STRING)
     @Column(name = "remote_work")
     private RemoteWork remoteWork;
-
 
 }
