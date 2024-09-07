@@ -3,6 +3,7 @@ package com.example.chat_bot_job;
 import com.example.chat_bot_job.dto.JobSalaryDTO;
 import com.example.chat_bot_job.dto.JobSnippetDTO;
 import com.example.chat_bot_job.dto.JobVacancyDTO;
+import com.example.chat_bot_job.entity.JobVacancy;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

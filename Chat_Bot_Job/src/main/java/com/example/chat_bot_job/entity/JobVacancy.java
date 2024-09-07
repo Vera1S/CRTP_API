@@ -1,5 +1,6 @@
-package com.example.chat_bot_job;
+package com.example.chat_bot_job.entity;
 
+import com.example.chat_bot_job.RemoteWork;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
