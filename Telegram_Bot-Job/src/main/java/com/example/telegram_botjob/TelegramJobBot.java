@@ -41,8 +41,7 @@ public class TelegramJobBot extends TelegramLongPollingBot {
               throw new RuntimeException(e);
           }
       }
-
-    }
+            }
 
     @Override
     public String getBotUsername() {
