@@ -1,16 +1,18 @@
 package com.example.telegram_botjob;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity (name = "subscriber")
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class Subscriber {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "chat_id")
