@@ -8,4 +8,5 @@ public interface SubscriberRepository extends JpaRepository <Subscriber, Long> {
 
      Subscriber findByChatId(String chatId);
 
+
 }
