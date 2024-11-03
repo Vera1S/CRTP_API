@@ -16,6 +16,7 @@ public class JobVacancyConvertor {
         jobVacancy.setId(Long.valueOf(jobVacancyDTO.getId()));
         jobVacancy.setCompanyName(jobVacancyDTO.getEmployer().getName());
         jobVacancy.setVacancyName(jobVacancyDTO.getName());
+        jobVacancy.setAlternateUrl(jobVacancyDTO.getAlternateUrl());
 
         JobSalaryDTO salary = jobVacancyDTO.getSalary();
         if (salary != null) {

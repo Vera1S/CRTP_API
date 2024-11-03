@@ -27,5 +27,8 @@ public class JobVacancyDTO {
     private JobScheduleDTO schedule;
     private JobExperienceDTO experience;
 
+    @JsonProperty("alternate_url")
+    private String alternateUrl;
+
 
     }

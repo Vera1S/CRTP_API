@@ -26,7 +26,7 @@ public class JobVacancySchedule {
     private final JobVacancyRepository jobVacancyRepository;
     private final MessageSender messageSender;
 
-    @Scheduled(cron = "0 0 16 * * *")
+    @Scheduled(cron = "0 * * * * *")
     public void newVacancy() {
         Collection<JobListDTO> pagesVacancyResult = headHunterConnector.getData();
         Collection<JobVacancy> listVacancy = pagesVacancyResult.stream()

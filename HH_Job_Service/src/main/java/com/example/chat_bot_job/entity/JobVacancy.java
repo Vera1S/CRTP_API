@@ -37,4 +37,7 @@ public class JobVacancy {
     @Column(name = "remote_work")
     private RemoteWork remoteWork;
 
+    @Column(name = "alternate_url")
+    private String alternateUrl;
+
 }
